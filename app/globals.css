@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b0a0f;
+  --foreground: #ffffff;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope-sans);
+}
+
+.containerFull {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 84px;
+}
+
+/* globals.css yoki tailwind.css ichida */
+.btn-gradient {
+  background: linear-gradient(
+    84deg,
+    #de5d00 0%,
+    #fd6900 26.47%,
+    #ffa362 60.32%,
+    #fd6900 100%
+  );
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(
+    84deg,
+    #fd6900 0%,
+    #ffa362 30%,
+    #de5d00 70%,
+    #fd6900 100%
+  );
+  transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
 }
