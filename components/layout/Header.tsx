@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-black border-b border-gray-600 ">
+    <header className="bg-black sticky top-0 z-50">
       <div className="container">
         <div className=" mx-auto flex items-center justify-between py-[21px]">
           {/* Logo */}
