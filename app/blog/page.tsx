@@ -1,7 +1,6 @@
 // app/blog/page.tsx
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,7 +15,7 @@ const posts = Array.from({ length: 8 }).map((_, i) => ({
 
 export default function BlogPage() {
   return (
-    <div className="bg-[#0E0E0E] min-h-screen py-10 text-white">
+    <div className=" min-h-screen py-10 text-white">
       <div className="container ">
         {/* Breadcrumb */}
         <div className="font-semibold flex md:mb-[30px] gap-2 text-[#FFFFFF8C]  text-[12px] md:text-[14px] mb-4">

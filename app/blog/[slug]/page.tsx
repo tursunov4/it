@@ -1,21 +1,20 @@
 // app/blog/[id]/page.tsx
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
-const relatedPosts = Array.from({ length: 4 }).map((_, i) => ({
+const posts = Array.from({ length: 4 }).map((_, i) => ({
   id: i,
   title: "Конкуренция и технологии",
   excerpt:
     "Основными законами современного общества являются: свобода предпринимательства, право частной собственности...",
   date: "12.05.25",
-  image: "/placeholder.png", // public papkaga rasm qo'yish kerak
+  image: "/placeholder.png", // public papkaga placeholder qo'yishingiz mumkin
 }));
 
 export default function BlogDetailPage() {
   return (
-    <div className="bg-[#0E0E0E] min-h-screen py-10 text-white">
+    <div className=" min-h-screen py-10 text-white">
       <div className="container mx-auto px-4">
         {/* Breadcrumb */}
         <div className="text-sm text-gray-400 mb-6">
@@ -25,35 +24,45 @@ export default function BlogDetailPage() {
         </div>
 
         {/* Post Title */}
-        <h1 className="text-3xl font-semibold mb-3">
+        <h1 className="font-semibold  mb-[20px] md:mb-[30px] text-[20px] md:text-[34px]">
           Конкуренция и it технологии
         </h1>
 
-        {/* Date */}
-        <p className="text-sm text-gray-400 mb-6">12.05.25</p>
-
         {/* Image */}
-        <div className="w-full h-72 sm:h-96 bg-gray-200 flex items-center justify-center rounded-xl mb-8">
-          <Image
-            src="/placeholder.png"
-            alt="Post image"
-            width={200}
-            height={200}
-            className="opacity-70"
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-10 md:mb-[48px]">
+          <div className="w-full h-[300px] h-[490px] bg-white rounded-[16px] md:rounded-[22px]">
+            <Image
+              src="/placeholder.png"
+              alt="Post image"
+              width={200}
+              height={200}
+              className="opacity-70"
+            />
+          </div>
+          <div>
+            <div>
+              <Image
+                width={20}
+                height={20}
+                src="/svg/pencil.svg"
+                alt="pencil"
+              />
+              <span>12.05.25</span>
+            </div>
+            <p>
+              Основными законами современного общества являются: свобода
+              предпринимательства, право частной собственности и наличие
+              конкурентной среды. Предпринимательство получает стабильность
+              только в условиях конкуренции, а главное условие конкуренции —
+              эффективность производства. Развивающиеся страны имеют
+              нестабильный, слабеющий и недостаточный результат, основное
+              использование ресурсов — человеческие и денежные ресурсы.
+            </p>
+          </div>
         </div>
 
         {/* Post Content */}
         <div className="prose prose-invert max-w-none mb-10 text-gray-200 leading-relaxed">
-          <p>
-            Основными законами современного общества являются: свобода
-            предпринимательства, право частной собственности и наличие
-            конкурентной среды. Предпринимательство получает стабильность только
-            в условиях конкуренции, а главное условие конкуренции —
-            эффективность производства. Развивающиеся страны имеют нестабильный,
-            слабеющий и недостаточный результат, основное использование ресурсов
-            — человеческие и денежные ресурсы.
-          </p>
           <p>
             Но наибольшей результативностью — обладают способности,
             инновационные решения и использование информационных технологий
@@ -72,38 +81,53 @@ export default function BlogDetailPage() {
         </div>
 
         {/* Related posts */}
-        <h2 className="text-2xl font-semibold mb-6">Может быть интересно</h2>
+        <h2 className="font-semibold  mb-[20px] md:mb-[40px] text-[20px] md:text-[34px]">
+          Может быть интересно
+        </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {relatedPosts.map((post) => (
+          {posts.map((post) => (
             <div
               key={post.id}
-              className="bg-[#181818] rounded-2xl overflow-hidden shadow-lg flex flex-col"
+              className="bg-[#1E1C24] rounded-[22px] overflow-hidden shadow-lg flex flex-col"
             >
               {/* Image */}
-              <div className="w-full h-44 bg-gray-200 flex items-center justify-center">
+              <div className="w-full bg-white">
                 <Image
                   src={post.image}
                   alt={post.title}
-                  width={100}
-                  height={100}
-                  className="opacity-70"
+                  width={320}
+                  height={200}
+                  className="w-full h-[200px] object-cover"
                 />
               </div>
 
               {/* Content */}
-              <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
-                <p className="text-sm text-gray-300 mb-3 flex-1">
+              <div className=" p-5 md:p-[25px] flex flex-col ">
+                <h2 className=" text-[16px]   leading-[138%] md:text-[20px] font-semibold  mb-3 md:mb-4">
+                  {post.title}
+                </h2>
+                <p className="  text-[12px]  font-normal  leading-[138%] md:text-[16px] text-[#FFFFFFDB] mb-3 flex-1">
                   {post.excerpt}
                 </p>
 
-                <div className="flex items-center justify-between text-gray-400 text-xs mb-3">
+                <div className="flex items-center  gap-[6px] text-gray-400 leading-[144%] text-[10px] mb-3">
+                  <Image
+                    alt={"pencil"}
+                    width={10}
+                    height={10}
+                    src={"/svg/pencil.svg"}
+                  />
                   <span>{post.date}</span>
                 </div>
 
-                <button className="mt-auto bg-orange-500 text-white py-2 px-4 rounded-lg flex items-center justify-center hover:bg-orange-600 transition">
+                <button className="  w-full justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]">
                   Читать полностью
-                  <ArrowRight className="ml-2 w-4 h-4" />
+                  <Image
+                    src={"/svg/btnicon.svg"}
+                    alt={"btnicon"}
+                    width={28}
+                    height={28}
+                  />
                 </button>
               </div>
             </div>
