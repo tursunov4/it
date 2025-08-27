@@ -1,4 +1,5 @@
 import AboutHeroSection from "@/components/sections/AboutHeroSection";
+import GuaranteesSection from "@/components/sections/GuaranteesSection";
 import PartnershipSection from "@/components/sections/PartnershipSection";
 import Link from "next/link";
 import React from "react";
@@ -13,6 +14,7 @@ const AboutPage = () => {
         </div>
       </div>
       <AboutHeroSection />
+      <GuaranteesSection />
       <PartnershipSection />
     </div>
   );

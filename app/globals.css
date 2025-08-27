@@ -43,9 +43,21 @@ body {
   );
   transition: all 0.3s ease-in-out;
 }
+.grbg {
+  background-image: url("/grbg1.png");
+  background-repeat: no-repeat;
+  background-size: 600px;
+  background-position: bottom right;
+}
 
 @media only screen and (max-width: 768px) {
   .container {
     padding: 0 20px;
+  }
+  .bgrbg {
+    background-image: url("/grbg2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 540px;
+    background-position: bottom center;
   }
 }

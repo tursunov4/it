@@ -1,61 +1,101 @@
+import Image from "next/image";
 import React from "react";
 
 const GuaranteesSection = () => {
   return (
-    <section className="bg-white text-black py-16 lg:py-24">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl lg:text-5xl font-bold text-center mb-16">
-          Какие гарантии вы получаете?
-        </h2>
+    <section className=" py-[42px] md:py-[64px]">
+      <div className="container ">
+        <div className=" rounded-[16px] md:rounded-[26px] grbg py-[42px] px-5 md:p-[44px] bg-white">
+          <h2 className="text-[#121212]   text-[20px] md:text-[34px] font-semibold  mb-[20px] md:mb-[50px]">
+            Какие гарантии вы получаете?
+          </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Guarantee 1 */}
-          <div className="text-center space-y-4">
-            <div className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-white text-2xl font-bold">17</span>
+          <div className="grid  md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {/* Guarantee 1 */}
+            <div className="rounded-[22px] p-5 md:p-[30px] lg:p-[40px] bg-[#F1F1F1] space-y-4">
+              <div className="flex items-center justify-between">
+                <Image
+                  src={"/svg/gr1.svg"}
+                  width={45}
+                  height={30}
+                  alt="gr"
+                  className=" w-[45px] block h-[30px] md:w-[57px] md:h-[38px] "
+                />
+                <span className="font-bold text-[#12121233] text-[14px] md:text-[16px]">
+                  01
+                </span>
+              </div>
+              <h3 className=" text-[#121212] text-[15px] md:text-[20px] leading-[100%] font-semibold">
+                Опыт работы 17 лет
+              </h3>
+              <p className="text-[#121212CC] font-normal  leading-[138%] text-[12px] md:text-[16px]">
+                Опыт - залог надёжности. Мы специализируемся на автоматизации
+                тестирования более семнадцати лет.
+              </p>
             </div>
-            <h3 className="text-xl font-semibold">Опыт работы 17 лет</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Опыт - залог надёжности. Мы специализируемся на автоматизации
-              тестирования более семнадцати лет.
-            </p>
-          </div>
-
-          {/* Guarantee 2 */}
-          <div className="text-center space-y-4">
-            <div className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-white text-2xl">24/7</span>
+            <div className="rounded-[22px] p-5 md:p-[30px] lg:p-[40px] bg-[#F1F1F1] space-y-4">
+              <div className="flex items-center justify-between">
+                <Image
+                  src={"/svg/g2.svg"}
+                  width={45}
+                  height={30}
+                  alt="gr"
+                  className=" w-[45px] block h-[30px] md:w-[57px] md:h-[38px] "
+                />
+                <span className="font-bold text-[#12121233] text-[14px] md:text-[16px]">
+                  02
+                </span>
+              </div>
+              <h3 className=" text-[#121212] text-[15px] md:text-[20px] leading-[100%] font-semibold">
+                Опыт работы 17 лет
+              </h3>
+              <p className="text-[#121212CC] font-normal  leading-[138%] text-[12px] md:text-[16px]">
+                Опыт - залог надёжности. Мы специализируемся на автоматизации
+                тестирования более семнадцати лет.
+              </p>
             </div>
-            <h3 className="text-xl font-semibold">Мониторинг 24/7</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Мониторинг процессов тестирования работает 24 часа в сутки,
-              обеспечивая стабильность вашей системы.
-            </p>
-          </div>
-
-          {/* Guarantee 3 */}
-          <div className="text-center space-y-4 relative">
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-orange-400 rounded-full opacity-20"></div>
-            <div className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4 relative z-10">
-              <span className="text-white text-2xl">🔒</span>
+            <div className="rounded-[22px] p-5 md:p-[30px] lg:p-[40px] bg-[#F1F1F1] space-y-4">
+              <div className="flex items-center justify-between">
+                <Image
+                  src={"/svg/gr3.svg"}
+                  width={45}
+                  height={30}
+                  alt="gr"
+                  className=" w-[45px] block h-[30px] md:w-[57px] md:h-[38px] "
+                />
+                <span className="font-bold text-[#12121233] text-[14px] md:text-[16px]">
+                  01
+                </span>
+              </div>
+              <h3 className=" text-[#121212] text-[15px] md:text-[20px] leading-[100%] font-semibold">
+                Опыт работы 17 лет
+              </h3>
+              <p className="text-[#121212CC] font-normal  leading-[138%] text-[12px] md:text-[16px]">
+                Опыт - залог надёжности. Мы специализируемся на автоматизации
+                тестирования более семнадцати лет.
+              </p>
             </div>
-            <h3 className="text-xl font-semibold">Защита данных</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Все данные о тестировании надёжно защищены и хранятся в
-              зашифрованном виде согласно международным стандартам.
-            </p>
-          </div>
-
-          {/* Guarantee 4 */}
-          <div className="text-center space-y-4">
-            <div className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-white text-2xl">⭐</span>
+            <div className="rounded-[22px] p-5 md:p-[30px] lg:p-[40px] bg-[#F1F1F1] space-y-4">
+              <div className="flex items-center justify-between">
+                <Image
+                  src={"/svg/gr4.svg"}
+                  width={45}
+                  height={30}
+                  alt="gr"
+                  className=" w-[45px] block h-[30px] md:w-[57px] md:h-[38px] "
+                />
+                <span className="font-bold text-[#12121233] text-[14px] md:text-[16px]">
+                  01
+                </span>
+              </div>
+              <h3 className=" text-[#121212] text-[15px] md:text-[20px] leading-[100%] font-semibold">
+                Опыт работы 17 лет
+              </h3>
+              <p className="text-[#121212CC] font-normal  leading-[138%] text-[12px] md:text-[16px]">
+                Опыт - залог надёжности. Мы специализируемся на автоматизации
+                тестирования более семнадцати лет.
+              </p>
             </div>
-            <h3 className="text-xl font-semibold">Соблюдение актов</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Мы гарантируем соблюдение всех актов и договорённостей,
-              обеспечивая прозрачность процессов.
-            </p>
           </div>
         </div>
       </div>
