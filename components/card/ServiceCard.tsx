@@ -7,41 +7,58 @@ type Service = {
   description: string;
   points: string[];
   image: string;
+  imageMobile: string;
 };
 
 export default function ServiceCard({ service }: { service: Service }) {
   return (
-    <div className="bg-white rounded-2xl p-6 flex flex-col justify-between shadow-md hover:shadow-lg transition">
+    <div className="bg-[#FAFAFA] rounded-[22px] p-5 md:p-[30px] flex  gap-[26px] justify-between shadow-md hover:shadow-lg transition">
       {/* Title + description */}
-      <div>
-        <h3 className="text-lg font-bold text-gray-900 mb-2">
-          {service.title}
-        </h3>
-        <p className="text-sm text-gray-600 mb-3">{service.description}</p>
+      <div className=" flex flex-col justify-between w-full lg:w-[calc(100%-206px)]">
+        <div>
+          <h3 className=" font-semibold text-[15px] md:text-[20px] text-[#121212] mb-4 ">
+            {service.title}
+          </h3>
+          <p className=" font-normal text-[12px] md:text-[16px] text-[#121212CC] ">
+            {service.description}
+          </p>
+        </div>
 
-        {/* Bullet points */}
-        <ul className="list-disc list-inside space-y-1 text-sm text-gray-700 mb-4">
-          {service.points.map((point, idx) => (
-            <li key={idx}>{point}</li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Bottom: button + image */}
-      <div className="flex items-end justify-between mt-auto">
-        <button className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">
-          Узнать подробнее
-          <ArrowRight className="w-4 h-4" />
-        </button>
-        <div className="w-28 h-28 relative">
+        <div>
+          <span className="block  w-full h-[1px]  bg-[#1212120F]  my-5 md:my-[30px]" />
+          {/* Bullet points */}
+          <ul className="list-disc list-inside space-y-1 font-normal text-[12px] md:text-[16px] text-[#121212CC] mb-4">
+            {service.points.map((point, idx) => (
+              <li key={idx}>{point}</li>
+            ))}
+          </ul>
           <Image
-            src={service.image}
+            src={service.imageMobile}
             alt={service.title}
-            fill
-            className="object-contain"
+            width={280}
+            height={120}
+            className="  block lg:hidden w-full my-4 h-[120px]   "
           />
+
+          <button className="  w-full md:w-auto justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]">
+            Узнать подробнее
+            <Image
+              src={"/svg/btnicon.svg"}
+              alt={"btnicon"}
+              width={28}
+              height={28}
+            />
+          </button>
         </div>
       </div>
+
+      <Image
+        src={service.image}
+        alt={service.title}
+        width={180}
+        height={287}
+        className="  hidden lg:block w-[180px]   "
+      />
     </div>
   );
 }

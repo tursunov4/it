@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import ServicePriceCard from "../../components/card/ServicePriceCard";
 
 const services = [
@@ -35,20 +36,25 @@ const services = [
 
 export default function PricingPage() {
   return (
-    <main className="container flex-1 py-10">
+    <main className="pt-[14px] pb-[42px] md:pt-[28px] md:pb-[64px]">
       {/* Breadcrumb */}
-      <div className="text-sm text-gray-400 mb-4">
-        Главная / <span className="text-white">Стоимость услуг</span>
-      </div>
+      <div className="container">
+        <div className="font-semibold flex md:mb-[30px] gap-2 text-[#FFFFFF8C]  text-[12px] md:text-[14px] mb-4">
+          <Link href={"/"}>Главная</Link> <span>/</span>{" "}
+          <Link href={"#"}>Стоимость услуг</Link>
+        </div>
 
-      {/* Title */}
-      <h2 className="text-2xl font-bold mb-8">Стоимость услуг</h2>
+        {/* Title */}
+        <h2 className="font-semibold  mb-[20px] md:mb-[40px] text-[20px] md:text-[34px]">
+          Стоимость услуг
+        </h2>
 
-      {/* Cards */}
-      <div className="space-y-4">
-        {services.map((s) => (
-          <ServicePriceCard key={s.id} service={s} />
-        ))}
+        {/* Cards */}
+        <div className="space-y-4">
+          {services.map((s) => (
+            <ServicePriceCard key={s.id} service={s} />
+          ))}
+        </div>
       </div>
     </main>
   );

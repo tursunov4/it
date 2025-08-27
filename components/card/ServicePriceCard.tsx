@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 type Service = {
   id: number;
@@ -9,21 +10,29 @@ type Service = {
 
 export default function ServicePriceCard({ service }: { service: Service }) {
   return (
-    <div className="bg-white rounded-2xl p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow hover:shadow-lg transition">
-      <div>
-        <h3 className="text-lg font-semibold text-black mb-1">
+    <div className="flex flex-col md:flex-row justify-between md:gap-5 w-full">
+      <div className="bg-[#FAFAFA] w-full md:w-[calc(100%-244px)] rounded-[16px]  md:rounded-[22px] p-5 md:p-[30px] shadow hover:shadow-lg transition">
+        <h3 className=" font-semibold text-[16px]  md:text-[20px] text-[#121212] mb-3 md:mb-4">
           {service.title}
         </h3>
-        <p className="text-sm text-gray-600">{service.description}</p>
+        <p className="font-normal text-[12px] md:text-[16px] text-[#121212CC]">
+          {service.description}
+        </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-        <span className="text-black font-semibold whitespace-nowrap">
+      <div className=" flex  flex-col bg-[#FAFAFA] w-full md:w-[224px] rounded-2xl   rounded-[16px] md:rounded-[22px] p-[14px] flex flex-col   items-center gap-[12px] shadow hover:shadow-lg transition">
+        <div className=" w-full p-[12px] rounded-[14px] border text-center border-[#FFA362] text-[#121212] font-semibold whitespace-nowrap">
           {service.price}
-        </span>
-        <button className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">
+        </div>
+
+        <button className="  w-full md:w-full justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]">
           Оставить заявку
-          <ArrowRight className="w-4 h-4" />
+          <Image
+            src={"/svg/btnicon.svg"}
+            alt={"btnicon"}
+            width={28}
+            height={28}
+          />
         </button>
       </div>
     </div>

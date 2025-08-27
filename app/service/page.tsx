@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import ServiceCard from "../../components/card/ServiceCard";
 
 const services = [
@@ -12,7 +13,8 @@ const services = [
       "Выездная и удалённая поддержка 24/7",
       "Гарантия уровня сервиса по договору (SLA)",
     ],
-    image: "/images/service1.png",
+    image: "/serviced1.png",
+    imageMobile: "/servicem1.png",
   },
   {
     id: 2,
@@ -24,7 +26,8 @@ const services = [
       "Подмена сотрудника (больничный или отпуск)",
       "Замена специалиста по требованию клиента",
     ],
-    image: "/images/service2.png",
+    image: "/serviced1.png",
+    imageMobile: "/servicem1.png",
   },
   {
     id: 3,
@@ -36,7 +39,8 @@ const services = [
       "Сервисы для IT-предприятия и сотрудников",
       "Ежемесячное ресурсное сопровождение",
     ],
-    image: "/images/service3.png",
+    image: "/serviced1.png",
+    imageMobile: "/servicem1.png",
   },
   {
     id: 4,
@@ -48,24 +52,28 @@ const services = [
       "Разработка ИТ-стратегии",
       "Аудит бизнес-процессов",
     ],
-    image: "/images/service4.png",
+    image: "/serviced1.png",
+    imageMobile: "/servicem1.png",
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <section className=" py-10">
+    <section className=" mt-[14px] mb-[42px] md:mt-[28px] md:mb-[64px]">
       {/* Breadcrumb */}
       <div className="container">
-        <div className="text-sm text-gray-400 mb-4">
-          Главная / <span className="text-white">Наши услуги</span>
+        <div className="font-semibold flex md:mb-[30px] gap-2 text-[#FFFFFF8C]  text-[12px] md:text-[14px] mb-4">
+          <Link href={"/"}>Главная</Link> <span>/</span>{" "}
+          <Link href={"#"}>Наши услуги</Link>
         </div>
 
         {/* Title */}
-        <h2 className="text-2xl font-bold text-white mb-8">Наши услуги</h2>
+        <h2 className="font-semibold  mb-[20px] md:mb-[40px] text-[20px] md:text-[34px]">
+          Наши услуги
+        </h2>
 
         {/* Services grid */}
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="flex flex-col gap-4 w-full">
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}
