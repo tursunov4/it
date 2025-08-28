@@ -2,6 +2,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const posts = Array.from({ length: 4 }).map((_, i) => ({
   id: i,
@@ -15,12 +16,12 @@ const posts = Array.from({ length: 4 }).map((_, i) => ({
 export default function BlogDetailPage() {
   return (
     <div className=" min-h-screen py-10 text-white">
-      <div className="container mx-auto px-4">
+      <div className="container ">
         {/* Breadcrumb */}
-        <div className="text-sm text-gray-400 mb-6">
-          <span className="hover:text-white cursor-pointer">Главная</span> /{" "}
-          <span className="hover:text-white cursor-pointer">Блог</span> /{" "}
-          <span className="text-white">Конкуренция и IT технологии</span>
+        <div className="font-semibold flex md:mb-[30px] gap-2 text-[#FFFFFF8C]  text-[12px] md:text-[14px] mb-4">
+          <Link href={"/"}>Главная</Link> <span>/</span>{" "}
+          <Link href={"/blog"}>Блог</Link>
+          <span>/</span> <Link href={"#"}>Конкуренция и it технологии</Link>
         </div>
 
         {/* Post Title */}
@@ -40,16 +41,18 @@ export default function BlogDetailPage() {
             />
           </div>
           <div>
-            <div>
+            <div className="flex gap-1 mb-[28px] align-center">
               <Image
-                width={20}
-                height={20}
+                width={13}
+                height={13}
                 src="/svg/pencil.svg"
                 alt="pencil"
               />
-              <span>12.05.25</span>
+              <span className="font-normal text-[13px] leading-[138%]">
+                12.05.25
+              </span>
             </div>
-            <p>
+            <p className="font-normal leading-[138%] text-[12px] md:text-[16px]">
               Основными законами современного общества являются: свобода
               предпринимательства, право частной собственности и наличие
               конкурентной среды. Предпринимательство получает стабильность
@@ -62,7 +65,7 @@ export default function BlogDetailPage() {
         </div>
 
         {/* Post Content */}
-        <div className="prose prose-invert max-w-none mb-10 text-gray-200 leading-relaxed">
+        <div className="font-normal mb-[42px]  md:mb-[64px] leading-[138%] text-[12px] md:text-[16px]">
           <p>
             Но наибольшей результативностью — обладают способности,
             инновационные решения и использование информационных технологий
@@ -81,10 +84,10 @@ export default function BlogDetailPage() {
         </div>
 
         {/* Related posts */}
-        <h2 className="font-semibold  mb-[20px] md:mb-[40px] text-[20px] md:text-[34px]">
+        <h2 className="font-semibold  pt-[42px] md:pt-[64px]   mb-[20px] md:mb-[40px] text-[20px] md:text-[34px]">
           Может быть интересно
         </h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-6  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {posts.map((post) => (
             <div
               key={post.id}
