@@ -24,7 +24,7 @@ export default function ThankYouModal() {
         </p>
         <button
           onClick={closeThankYou}
-          className="mt-5 bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-lg transition"
+          className="w-full justify-center flex items-center cursor-pointer gap-[10px] btn-gradient text-[14px] transition-all duration-500 font-semibold md:text-[16px] text-white rounded-[14px] p-[10px] border border-[#FFA362] disabled:opacity-50"
         >
           Закрыть
         </button>

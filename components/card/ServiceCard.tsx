@@ -1,5 +1,6 @@
+"use client";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type Service = {
   id: number;
@@ -8,9 +9,11 @@ type Service = {
   points: string[];
   image: string;
   imageMobile: string;
+  slug: string;
 };
 
 export default function ServiceCard({ service }: { service: Service }) {
+  const router = useRouter();
   return (
     <div className="bg-[#FAFAFA] rounded-[22px] p-5 md:p-[30px] flex  gap-[26px] justify-between shadow-md hover:shadow-lg transition">
       {/* Title + description */}
@@ -40,7 +43,10 @@ export default function ServiceCard({ service }: { service: Service }) {
             className="  block lg:hidden w-full my-4 h-[120px]   "
           />
 
-          <button className="  w-full md:w-auto justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]">
+          <button
+            onClick={() => router.push(`/service/${service.slug}`)}
+            className="  w-full md:w-auto justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]"
+          >
             Узнать подробнее
             <Image
               src={"/svg/btnicon.svg"}

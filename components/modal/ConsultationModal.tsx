@@ -1,24 +1,44 @@
 "use client";
 
+import api from "@/api/api";
 import { useModal } from "@/context/ModalContext";
 import { X } from "lucide-react";
-import { useState } from "react";
+import Image from "next/image";
+import { useForm } from "react-hook-form";
+
+type FormValues = {
+  name: string;
+  phone: string;
+  email: string;
+  question: string;
+  agree: boolean;
+};
 
 export default function ConsultationModal() {
   const { isOpen, closeModal, openThankYou } = useModal();
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    question: "",
-    agree: false,
-  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    closeModal();
-    openThankYou();
-    // Bu joyda API ga jo'natishingiz mumkin
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<FormValues>();
+
+  const onSubmit = async (data: FormValues) => {
+    try {
+      await api.post("http://185.4.65.234/api/zayavki/create/", {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        message: data.question, // APIga question -> message sifatida yuboriladi
+      });
+
+      reset(); // formani tozalash
+      closeModal();
+      openThankYou();
+    } catch (error) {
+      console.error("Xatolik:", error);
+    }
   };
 
   if (!isOpen) return null;
@@ -29,7 +49,7 @@ export default function ConsultationModal() {
         {/* Close btn */}
         <button
           onClick={closeModal}
-          className="absolute top-3 right-3 text-gray-500  hover:text-black"
+          className="absolute top-3 right-3 text-gray-500 hover:text-black"
         >
           <X className="w-6 h-6" />
         </button>
@@ -38,63 +58,72 @@ export default function ConsultationModal() {
           Оставьте заявку и получите бесплатную консультацию
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-3">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
           <input
             type="text"
             placeholder="Ваше имя"
             className="w-full border rounded-lg px-3 py-2"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            required
+            {...register("name", { required: "Введите имя" })}
           />
+          {errors.name && (
+            <p className="text-red-500 text-sm">{errors.name.message}</p>
+          )}
+
           <input
             type="tel"
             placeholder="Номер телефона"
             className="w-full border rounded-lg px-3 py-2"
-            value={formData.phone}
-            onChange={(e) =>
-              setFormData({ ...formData, phone: e.target.value })
-            }
-            required
+            {...register("phone", { required: "Введите номер телефона" })}
           />
+          {errors.phone && (
+            <p className="text-red-500 text-sm">{errors.phone.message}</p>
+          )}
+
           <input
             type="email"
             placeholder="Ваша электронная почта"
             className="w-full border rounded-lg px-3 py-2"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-            required
+            {...register("email", {
+              required: "Введите email",
+              pattern: { value: /^\S+@\S+$/i, message: "Неверный email" },
+            })}
           />
+          {errors.email && (
+            <p className="text-red-500 text-sm">{errors.email.message}</p>
+          )}
+
           <textarea
             placeholder="Ваш вопрос"
             className="w-full border rounded-lg px-3 py-2"
             rows={3}
-            value={formData.question}
-            onChange={(e) =>
-              setFormData({ ...formData, question: e.target.value })
-            }
+            {...register("question")}
           />
 
           <label className="flex items-center gap-2 text-sm">
             <input
               type="checkbox"
-              checked={formData.agree}
-              onChange={(e) =>
-                setFormData({ ...formData, agree: e.target.checked })
-              }
-              required
+              {...register("agree", { required: "Необходимо согласие" })}
             />
             Я принимаю условия публичной оферты и выражаю согласие на обработку
             персональных данных
           </label>
+          {errors.agree && (
+            <p className="text-red-500 text-sm">{errors.agree.message}</p>
+          )}
 
           <button
-            type="submit"
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg transition"
+            disabled={isSubmitting}
+            className="w-full justify-center flex items-center cursor-pointer gap-[10px] btn-gradient text-[14px] transition-all duration-500 font-semibold md:text-[16px] text-white rounded-[14px] p-[10px] border border-[#FFA362] disabled:opacity-50"
           >
-            Отправить →
+            {isSubmitting ? "Отправка..." : "Отправить"}
+            {!isSubmitting && (
+              <Image
+                src={"/svg/btnicon.svg"}
+                alt={"btnicon"}
+                width={28}
+                height={28}
+              />
+            )}
           </button>
         </form>
       </div>

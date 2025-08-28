@@ -1,5 +1,8 @@
+"use client";
 import Link from "next/link";
 import TeamCard from "../../components/card/TeamCard";
+import { useEffect, useState } from "react";
+import api from "@/api/api";
 
 const team = [
   {
@@ -34,6 +37,17 @@ const team = [
 ];
 
 export default function AboutPage() {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    api
+      .get("/komanda/")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <section className="  min-h-[684px] pt-[14px] pb-[42px] md:pt-[28px] md:pb-[64px]  ">
       {/* Breadcrumb */}

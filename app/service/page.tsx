@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import ServiceCard from "../../components/card/ServiceCard";
+import { use, useEffect, useState } from "react";
+import api from "@/api/api";
 
 const services = [
   {
@@ -15,6 +17,7 @@ const services = [
     ],
     image: "/serviced1.png",
     imageMobile: "/servicem1.png",
+    slug: "it-outsourcing",
   },
   {
     id: 2,
@@ -28,6 +31,7 @@ const services = [
     ],
     image: "/serviced1.png",
     imageMobile: "/servicem1.png",
+    slug: "it-outsourcing",
   },
   {
     id: 3,
@@ -41,6 +45,7 @@ const services = [
     ],
     image: "/serviced1.png",
     imageMobile: "/servicem1.png",
+    slug: "virtual-office",
   },
   {
     id: 4,
@@ -54,10 +59,23 @@ const services = [
     ],
     image: "/serviced1.png",
     imageMobile: "/servicem1.png",
+    slug: "it-outsourcing",
   },
 ];
 
 export default function ServicesPage() {
+  const [data, setData] = useState();
+  useEffect(() => {
+    api
+      .get("/uslugi/")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <section className=" mt-[14px] mb-[42px] md:mt-[28px] md:mb-[64px]">
       {/* Breadcrumb */}

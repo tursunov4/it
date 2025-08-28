@@ -1,8 +1,10 @@
 // app/blog/page.tsx
 "use client";
 
+import api from "@/api/api";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const posts = Array.from({ length: 8 }).map((_, i) => ({
   id: i,
@@ -14,6 +16,18 @@ const posts = Array.from({ length: 8 }).map((_, i) => ({
 }));
 
 export default function BlogPage() {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    api
+      .get("/blog/")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
   return (
     <div className=" min-h-screen py-10 text-white">
       <div className="container ">
