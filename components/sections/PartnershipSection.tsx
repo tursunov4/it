@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const PartnershipSection = () => {
+  const router = useRouter();
   return (
     <section className=" py-[42px] md:py-[64px]">
       <div className="container ">
@@ -63,7 +66,10 @@ const PartnershipSection = () => {
 
         {/* CTA Button */}
         <div className=" flex justify-center    mt-[26px] mb:mt-[42px]">
-          <button className="  w-full md:w-auto justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient   transition-all duration-500  font-semibold text-[16px]  text-white  rounded-[14px] p-[10px]  border border-[#FFA362]">
+          <button
+            onClick={() => router.push("/service")}
+            className="  w-full md:w-auto justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient   transition-all duration-500  font-semibold text-[16px]  text-white  rounded-[14px] p-[10px]  border border-[#FFA362]"
+          >
             Перейти к услугам
             <Image
               src={"/svg/btnicon.svg"}

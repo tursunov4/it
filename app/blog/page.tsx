@@ -4,6 +4,7 @@
 import api from "@/api/api";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const posts = Array.from({ length: 8 }).map((_, i) => ({
@@ -16,6 +17,7 @@ const posts = Array.from({ length: 8 }).map((_, i) => ({
 }));
 
 export default function BlogPage() {
+  const router = useRouter();
   const [data, setData] = useState(null);
   useEffect(() => {
     api
@@ -79,7 +81,10 @@ export default function BlogPage() {
                   <span>{post.date}</span>
                 </div>
 
-                <button className="  w-full justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]">
+                <button
+                  onClick={() => router.push(`/blog/${post.id}`)}
+                  className="  w-full justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]"
+                >
                   Читать полностью
                   <Image
                     src={"/svg/btnicon.svg"}

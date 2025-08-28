@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const posts = Array.from({ length: 4 }).map((_, i) => ({
   id: i,
@@ -14,6 +15,7 @@ const posts = Array.from({ length: 4 }).map((_, i) => ({
 }));
 
 export default function BlogDetailPage() {
+  const router = useRouter();
   return (
     <div className=" min-h-screen py-10 text-white">
       <div className="container ">
@@ -123,7 +125,10 @@ export default function BlogDetailPage() {
                   <span>{post.date}</span>
                 </div>
 
-                <button className="  w-full justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]">
+                <button
+                  onClick={() => router.push(`/blog/dasf`)}
+                  className="  w-full justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]"
+                >
                   Читать полностью
                   <Image
                     src={"/svg/btnicon.svg"}

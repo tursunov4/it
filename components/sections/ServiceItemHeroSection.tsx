@@ -1,8 +1,11 @@
+"use client";
+import { useModal } from "@/context/ModalContext";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { use } from "react";
 
 const ServiceItemHeroSection = () => {
+  const { openModal } = useModal();
   return (
     <section className="bg-[url('/serviceitembg.png')] bg-no-repeat bg-cover bg-center pb-3 pt-5 md:pt-[28px] md:pb-[64px] h-[520px] md:h-[670px] rounded-[20px] md:rounded-[26px] mx-2 md:mx-5">
       <div className="container h-full">
@@ -22,7 +25,10 @@ const ServiceItemHeroSection = () => {
               ITIL. Снизим количество инцидентов на 30% в первый месяц
               обслуживания.
             </p>
-            <button className="  w-full md:w-auto justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient   transition-all duration-500  font-semibold text-[16px]  text-white  rounded-[14px] p-[10px]  border border-[#FFA362]">
+            <button
+              onClick={() => openModal()}
+              className="  w-full md:w-auto justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient   transition-all duration-500  font-semibold text-[16px]  text-white  rounded-[14px] p-[10px]  border border-[#FFA362]"
+            >
               Получить предложение
               <Image
                 src={"/svg/btnicon.svg"}

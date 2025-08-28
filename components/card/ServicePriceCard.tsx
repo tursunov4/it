@@ -1,3 +1,5 @@
+"use client";
+import { useModal } from "@/context/ModalContext";
 import Image from "next/image";
 
 type Service = {
@@ -8,6 +10,7 @@ type Service = {
 };
 
 export default function ServicePriceCard({ service }: { service: Service }) {
+  const { openModal } = useModal();
   return (
     <div className="flex flex-col md:flex-row justify-between md:gap-5 w-full">
       <div className="bg-[#FAFAFA] w-full md:w-[calc(100%-244px)] rounded-[16px]  md:rounded-[22px] p-5 md:p-[30px] shadow hover:shadow-lg transition">
@@ -24,7 +27,10 @@ export default function ServicePriceCard({ service }: { service: Service }) {
           {service.price}
         </div>
 
-        <button className="  w-full md:w-full justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]">
+        <button
+          onClick={() => openModal()}
+          className="  w-full md:w-full justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]"
+        >
           Оставить заявку
           <Image
             src={"/svg/btnicon.svg"}
