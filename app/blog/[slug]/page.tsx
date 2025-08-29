@@ -5,13 +5,11 @@ import api from "@/api/api";
 import { BlogType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter, useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-interface PageProps {
-  params: { slug: string };
-}
-export default function BlogDetailPage({ params }: PageProps) {
+export default function BlogDetailPage() {
+  const { slug } = useParams<{ slug: string }>(); // ✅ params o‘rniga useParams()
   const [data, setData] = useState<BlogType | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogType[]>([]);
   const [loading, setLoading] = useState(true);
@@ -23,7 +21,7 @@ export default function BlogDetailPage({ params }: PageProps) {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await api.get(`/blog/${params.slug}/`);
+        const res = await api.get(`/blog/${slug}/`);
         setData(res.data);
       } catch (err) {
         console.error("Error fetching post:", err);
@@ -31,14 +29,14 @@ export default function BlogDetailPage({ params }: PageProps) {
         setLoading(false);
       }
     };
-    fetchPost();
-  }, [params.slug]);
+    if (slug) fetchPost();
+  }, [slug]);
 
   // Fetch related posts
   useEffect(() => {
     const fetchRelated = async () => {
       try {
-        const res = await api.get(`/blog/${params.slug}/similar/`);
+        const res = await api.get(`/blog/${slug}/similar/`);
         setRelatedPosts(res.data);
       } catch (err) {
         console.error("Error fetching related posts:", err);
@@ -46,8 +44,8 @@ export default function BlogDetailPage({ params }: PageProps) {
         setLoadingRelated(false);
       }
     };
-    fetchRelated();
-  }, [params.slug]);
+    if (slug) fetchRelated();
+  }, [slug]);
 
   return (
     <div className="min-h-screen py-10 text-white">
