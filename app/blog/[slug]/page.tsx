@@ -6,13 +6,12 @@ import { BlogType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function BlogDetailPage({
-  params,
-}: {
+interface PageProps {
   params: { slug: string };
-}) {
+}
+export default function BlogDetailPage({ params }: PageProps) {
   const [data, setData] = useState<BlogType | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogType[]>([]);
   const [loading, setLoading] = useState(true);
