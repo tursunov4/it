@@ -1,17 +1,5 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
-import "./globals.css";
-import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
-import { ModalProvider } from "@/context/ModalContext";
-import ThankYouModal from "@/components/modal/ThankYouModal";
-import ConsultationModal from "@/components/modal/ConsultationModal";
-
-const manropeSans = Manrope({
-  variable: "--font-manrope-sans",
-  subsets: ["latin"],
-});
 
 // API’dan SEO fetch qilish
 async function getSEO() {
@@ -45,12 +33,12 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return {
-    title: seo.page_main_title || "It outsourcing",
-    description: seo.page_main_description || "Default description",
-    keywords: seo.page_main_keywords || "",
+    title: seo.page_blog_title || "It outsourcing",
+    description: seo.page_blog_description || "Default description",
+    keywords: seo.page_blog_keywords || "",
     openGraph: {
-      title: seo.page_main_title,
-      description: seo.page_main_description,
+      title: seo.page_blog_title,
+      description: seo.page_blog_description,
       siteName: "It outsourcing",
       type: "website",
     },
@@ -63,15 +51,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru">
-      <body className={`${manropeSans.variable} antialiased`}>
-        <ModalProvider>
-          <Header />
-          {children}
-          <Footer />
-          <ThankYouModal />
-          <ConsultationModal />
-        </ModalProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
