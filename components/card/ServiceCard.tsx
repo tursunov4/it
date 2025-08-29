@@ -1,4 +1,5 @@
 "use client";
+import { ServiceType } from "@/types";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -12,7 +13,7 @@ type Service = {
   slug: string;
 };
 
-export default function ServiceCard({ service }: { service: Service }) {
+export default function ServiceCard({ service }: { service: ServiceType }) {
   const router = useRouter();
   return (
     <div className="bg-[#FAFAFA] rounded-[22px] p-5 md:p-[30px] flex  gap-[26px] justify-between shadow-md hover:shadow-lg transition">
@@ -22,25 +23,26 @@ export default function ServiceCard({ service }: { service: Service }) {
           <h3 className=" font-semibold text-[15px] md:text-[20px] text-[#121212] mb-4 ">
             {service.title}
           </h3>
-          <p className=" font-normal text-[12px] md:text-[16px] text-[#121212CC] ">
-            {service.description}
-          </p>
+          <p
+            dangerouslySetInnerHTML={{ __html: service.description }}
+            className=" font-normal text-[12px] md:text-[16px] text-[#121212CC] "
+          ></p>
         </div>
 
         <div>
           <span className="block  w-full h-[1px]  bg-[#1212120F]  my-5 md:my-[30px]" />
-          {/* Bullet points */}
+
           <ul className="list-disc list-inside space-y-1 font-normal text-[12px] md:text-[16px] text-[#121212CC] mb-4">
-            {service.points.map((point, idx) => (
-              <li key={idx}>{point}</li>
+            {service.characteristic_services.map((point, idx) => (
+              <li key={idx}>{point.short_description}</li>
             ))}
           </ul>
           <Image
-            src={service.imageMobile}
+            src={service.image}
             alt={service.title}
             width={280}
             height={120}
-            className="  block lg:hidden w-full my-4 h-[120px]   "
+            className=" rounded-[16px] object-cover block lg:hidden w-full my-4 h-[120px]   "
           />
 
           <button
@@ -63,7 +65,7 @@ export default function ServiceCard({ service }: { service: Service }) {
         alt={service.title}
         width={180}
         height={287}
-        className="  hidden lg:block w-[180px]   "
+        className="  rounded-[22px] object-contain hidden lg:block w-[180px]   "
       />
     </div>
   );

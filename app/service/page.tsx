@@ -4,6 +4,7 @@ import Link from "next/link";
 import ServiceCard from "../../components/card/ServiceCard";
 import { use, useEffect, useState } from "react";
 import api from "@/api/api";
+import { ServiceType } from "@/types";
 
 const services = [
   {
@@ -64,12 +65,13 @@ const services = [
 ];
 
 export default function ServicesPage() {
-  const [data, setData] = useState();
+  const [data, setData] = useState<ServiceType[]>([]);
   useEffect(() => {
     api
       .get("/uslugi/")
       .then((res) => {
         console.log(res.data);
+        setData(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -92,7 +94,7 @@ export default function ServicesPage() {
 
         {/* Services grid */}
         <div className="grid gap-6 md:grid-cols-2">
-          {services.map((service) => (
+          {data.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}
         </div>

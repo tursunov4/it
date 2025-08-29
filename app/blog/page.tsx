@@ -2,6 +2,7 @@
 "use client";
 
 import api from "@/api/api";
+import { BlogType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -18,12 +19,12 @@ const posts = Array.from({ length: 8 }).map((_, i) => ({
 
 export default function BlogPage() {
   const router = useRouter();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<BlogType[]>([]);
   useEffect(() => {
     api
       .get("/blog/")
       .then((res) => {
-        console.log(res.data);
+        setData(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -46,7 +47,7 @@ export default function BlogPage() {
 
         {/* Blog Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {posts.map((post) => (
+          {data.map((post) => (
             <div
               key={post.id}
               className="bg-[#1E1C24] rounded-[22px] overflow-hidden shadow-lg flex flex-col"
@@ -67,9 +68,10 @@ export default function BlogPage() {
                 <h2 className=" text-[16px]   leading-[138%] md:text-[20px] font-semibold  mb-3 md:mb-4">
                   {post.title}
                 </h2>
-                <p className="  text-[12px]  font-normal  leading-[138%] md:text-[16px] text-[#FFFFFFDB] mb-3 flex-1">
-                  {post.excerpt}
-                </p>
+                <p
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                  className=" text-[12px]  line-clamp-4  font-normal  leading-[138%] md:text-[16px] text-[#FFFFFFDB] mb-3 flex-1"
+                ></p>
 
                 <div className="flex items-center  gap-[6px] text-gray-400 leading-[144%] text-[10px] mb-3">
                   <Image
@@ -78,11 +80,11 @@ export default function BlogPage() {
                     height={10}
                     src={"/svg/pencil.svg"}
                   />
-                  <span>{post.date}</span>
+                  <span>{post.created_at.slice(0, 10)}</span>
                 </div>
 
                 <button
-                  onClick={() => router.push(`/blog/${post.id}`)}
+                  onClick={() => router.push(`/blog/${post.slug}`)}
                   className="  w-full justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient  text-[14px]  transition-all duration-500  font-semibold md:text-[16px]  text-white  rounded-[14px]  p-[10px]  border border-[#FFA362]"
                 >
                   Читать полностью

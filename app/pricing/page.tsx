@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import ServicePriceCard from "../../components/card/ServicePriceCard";
+import { useEffect, useState } from "react";
+import api from "@/api/api";
+import axios from "axios";
 
 const services = [
   {
@@ -35,6 +38,19 @@ const services = [
 ];
 
 export default function PricingPage() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://185.4.65.234/api/uslugi/prices/", {
+        headers: {
+          Authorization: "Token bc6040a552b68c265ae8114a08207a40f753ee6b",
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <main className="pt-[14px] pb-[42px] md:pt-[28px] md:pb-[64px]">
       {/* Breadcrumb */}

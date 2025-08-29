@@ -1,40 +1,43 @@
+"use client";
+import api from "@/api/api";
+import { AboutType } from "@/types";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const ServicesItemAbout = () => {
+  const [data, setData] = useState<AboutType[]>([]);
+
+  useEffect(() => {
+    api
+      .get("/about/")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const aboutData = data?.[0];
+
   return (
     <section className="pt-[48px] md:pt-[64px]">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-5 ">
           {/* Left Content */}
-          <Image
-            src={"/png.png"}
-            className="w-full"
-            width={1000}
-            height={1000}
-            alt=""
-          />
-          <div className=" p-5 md:p-[30px] font-normal text-[12px]  md:text-[16px]  rounded-[16px] md:rounded-[22px] border border-[#FFFFFF61]">
-            Компания АУТЕСТ существует с 2017 года, поэтому у нас большой опыт в
-            сфере автоматизации тестирования и разработки программного
-            обеспечения. Наша команда состоит из опытных специалистов, которые
-            помогут вам достичь целей в области качества ПО.
-            <br />
-            <br />
-            Мы предоставляем специализированные консультации по вопросам
-            автоматизации тестирования, разработке и внедрению систем
-            обеспечения качества. Наши услуги включают в себя: анализ текущих
-            процессов тестирования, разработку стратегий автоматизации,
-            внедрение современных инструментов и методологий тестирования.
-            <br />
-            <br />
-            Мы работаем с различными технологиями и инструментами автоматизации:
-            Selenium, Cypress, TestNG, JUnit, Maven, Gradle и многими другими.
-            Наш подход основан на лучших практиках индустрии и адаптирован под
-            специфику каждого проекта. Мы помогаем компаниям оптимизировать
-            процессы тестирования и повысить качество выпускаемого программного
-            продукта.
-          </div>
+          {aboutData?.image && (
+            <Image
+              src={aboutData.image}
+              className="w-full"
+              width={1000}
+              height={1000}
+              alt="about image"
+            />
+          )}
+          <div
+            dangerouslySetInnerHTML={{ __html: aboutData?.description || "" }}
+            className="p-5 md:p-[30px] font-normal text-[12px] md:text-[16px] rounded-[16px] md:rounded-[22px] border border-[#FFFFFF61]"
+          ></div>
         </div>
       </div>
     </section>

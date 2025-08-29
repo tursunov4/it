@@ -1,18 +1,11 @@
+import { GroupType } from "@/types";
 import Image from "next/image";
 
-type TeamMember = {
-  id: number;
-  name: string;
-  age: number;
-  description: string;
-  image: string;
-};
-
-export default function TeamCard({ member }: { member: TeamMember }) {
+export default function TeamCard({ member }: { member: GroupType }) {
   return (
     <div className=" rounded-[16px] md:rounded-[22px] bg-[#1E1C24] shadow-md hover:shadow-lg transition w-full overflow-hidden">
       {/* Image */}
-      <div className="w-full h-[228px] bg-white">
+      <div className="w-full h-[228px] ">
         <Image
           src={member.image}
           alt={member.name}
@@ -28,7 +21,7 @@ export default function TeamCard({ member }: { member: TeamMember }) {
           {member.name} / {member.age} лет
         </p>
         <p className="text-sm  font-normal  text-[12px] md:text-[16px] text-[#FFFFFFDB] mt-2">
-          {member.description}
+          {member.position}
         </p>
       </div>
     </div>

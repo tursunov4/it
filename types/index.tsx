@@ -1,7 +1,7 @@
 export interface GroupType {
   id: number;
   name: string;
-  postion: string;
+  position: string;
   image: string;
   age: number;
   created_at: string;
@@ -27,6 +27,7 @@ export interface ServiceType {
   id: number;
   title: string;
   description: string;
+  slug: string;
   points: string[];
   image: string;
   price_services: {
@@ -40,7 +41,10 @@ export interface ServiceType {
     title: string;
     description: string;
   }[];
-  price: string;
+  characteristic_services: {
+    short_description: string;
+  }[];
+  price: number;
 }
 
 export interface ServicePriceType {

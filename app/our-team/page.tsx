@@ -3,6 +3,7 @@ import Link from "next/link";
 import TeamCard from "../../components/card/TeamCard";
 import { useEffect, useState } from "react";
 import api from "@/api/api";
+import { GroupType } from "@/types";
 
 const team = [
   {
@@ -37,12 +38,13 @@ const team = [
 ];
 
 export default function AboutPage() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<GroupType[]>([]);
   useEffect(() => {
     api
       .get("/komanda/")
       .then((res) => {
         console.log(res.data);
+        setData(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -64,7 +66,7 @@ export default function AboutPage() {
 
         {/* Team grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((member) => (
+          {data.map((member) => (
             <TeamCard key={member.id} member={member} />
           ))}
         </div>
