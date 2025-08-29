@@ -13,7 +13,7 @@ export default function ServicesPage() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await api.get("/uslugi/");
+        const res = await api.get("/uslugi/services/");
         setData(res.data);
       } catch (err) {
         console.error("Error fetching services:", err);

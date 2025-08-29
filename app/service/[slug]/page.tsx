@@ -13,7 +13,7 @@ const LandingPage = () => {
   const { slug } = useParams<{ slug: string }>();
   useEffect(() => {
     api
-      .get(`/uslugi/${slug}/`)
+      .get(`/uslugi/services/${slug}/`)
       .then((res) => {
         setData(res.data);
       })
