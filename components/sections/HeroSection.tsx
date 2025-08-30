@@ -34,7 +34,8 @@ const HeroSection = () => {
           От задачи <br className="md:hidden " /> – к решению.
         </h1>
         <p className="font-light text-[18px] md:text-[40px]">
-          <span ref={el} />
+          <noscript>Прямо. Без вариантов...</noscript>
+          <span ref={el}></span>
         </p>
       </div>
     </section>
