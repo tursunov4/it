@@ -67,24 +67,26 @@ export default function BlogPage() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-5 md:p-[25px] flex flex-col">
-                    <h2 className="text-[16px] leading-[138%] md:text-[20px] font-semibold mb-3 md:mb-4 line-clamp-2">
-                      {post.title}
-                    </h2>
-                    <p
-                      dangerouslySetInnerHTML={{ __html: post.content }}
-                      className="text-[12px] line-clamp-4 font-normal leading-[138%] md:text-[16px] text-[#FFFFFFDB] mb-3 flex-1"
-                    ></p>
+                  <div className="p-5 h-full md:p-[25px] flex flex-col justify-between">
+                    <div>
+                      <h2 className="text-[16px] leading-[138%] md:text-[20px] font-semibold mb-3 md:mb-4 line-clamp-2">
+                        {post.title}
+                      </h2>
+                      <p
+                        dangerouslySetInnerHTML={{ __html: post.content }}
+                        className="text-[12px] line-clamp-4 font-normal leading-[138%] md:text-[16px] text-[#FFFFFFDB] mb-3 flex-1"
+                      ></p>
 
-                    {/* Date */}
-                    <div className="flex items-center gap-[6px] text-gray-400 leading-[144%] text-[10px] mb-3">
-                      <Image
-                        alt="pencil"
-                        width={10}
-                        height={10}
-                        src="/svg/pencil.svg"
-                      />
-                      <span>{post.created_at?.slice(0, 10)}</span>
+                      {/* Date */}
+                      <div className="flex items-center gap-[6px] text-gray-400 leading-[144%] text-[10px] mb-3">
+                        <Image
+                          alt="pencil"
+                          width={10}
+                          height={10}
+                          src="/svg/pencil.svg"
+                        />
+                        <span>{post.created_at?.slice(0, 10)}</span>
+                      </div>
                     </div>
 
                     {/* Button */}

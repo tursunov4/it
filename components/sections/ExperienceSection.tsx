@@ -43,7 +43,7 @@ const ExperienceSection = () => {
                 <h3 className="text-white text-lg font-semibold mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-400 text-sm">{service.desc}</p>
+                <p className="text-[#FFFFFFDB] text-sm">{service.desc}</p>
               </div>
 
               <Image
