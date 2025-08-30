@@ -15,10 +15,10 @@ const Header = () => {
   return (
     <header className="bg-black sticky top-0 z-50">
       <div className="container">
-        <div className="mx-auto flex items-center justify-between py-[21px]">
+        <div className="mx-auto flex items-center justify-between py-[10px] md:py-[21px]">
           {/* Logo */}
           <Link href="/" className="text-xl font-bold text-white">
-            Главная
+            <Image src="/logo.png" alt="logo" width={60} height={60} />
           </Link>
 
           {/* Desktop Menu */}
