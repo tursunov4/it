@@ -23,11 +23,11 @@ const PartnershipSection = () => {
               alt={"server"}
             />
             <h3 className="font-semibold mb-3 md:mb-5  text-[16px] md:text-[20px]">
-              Удобно
+              Надежно
             </h3>
             <p className="text-[#FFFFFFDB] text-[12px] md:text-[16px] leading-[138%]">
-              Простота в использовании наших решений позволяет быстро
-              интегрировать системы автоматизации в ваши рабочие процессы.
+              Соглашение об уровне сервиса (SLA), Соглашение о
+              конфиденциальности (NDA) с персональной ответственностью
             </p>
           </div>
           <div className="bg-[#222125] relative mt-[85px] md:mt-[140px] p-[20px]  md:p-[40px]  pt-[105px] md:pt-[160px] rounded-[22px]">
@@ -42,8 +42,8 @@ const PartnershipSection = () => {
               Удобно
             </h3>
             <p className="text-[#FFFFFFDB] text-[12px] md:text-[16px] leading-[138%]">
-              Простота в использовании наших решений позволяет быстро
-              интегрировать системы автоматизации в ваши рабочие процессы.
+              Через наше мобильное приложение или веб-портал вы в любой момент
+              сможете создать заявку, оценить работу 
             </p>
           </div>
           <div className="bg-[#222125] relative mt-[85px] md:mt-[140px] p-[20px]  md:p-[40px]  pt-[105px] md:pt-[160px] rounded-[22px]">
@@ -55,11 +55,11 @@ const PartnershipSection = () => {
               alt={"server"}
             />
             <h3 className="font-semibold mb-3 md:mb-5  text-[16px] md:text-[20px]">
-              Удобно
+              Выгодно
             </h3>
             <p className="text-[#FFFFFFDB] text-[12px] md:text-[16px] leading-[138%]">
-              Простота в использовании наших решений позволяет быстро
-              интегрировать системы автоматизации в ваши рабочие процессы.
+              Никаких непредвиденных доплат. В договоре зафиксирован весь
+              согласованный перечень услуг
             </p>
           </div>
         </div>

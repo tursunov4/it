@@ -29,8 +29,8 @@ const GuaranteesSection = () => {
                 Опыт работы 17 лет
               </h3>
               <p className="text-[#121212CC] font-normal  leading-[138%] text-[12px] md:text-[16px]">
-                Опыт - залог надёжности. Мы специализируемся на автоматизации
-                тестирования более семнадцати лет.
+                Опыт - залог понимания принципов построения и долговечной работы
+                вверенных компании.
               </p>
             </div>
             <div className="rounded-[22px] p-5 md:p-[30px] lg:p-[40px] bg-[#F1F1F1] space-y-4">
@@ -47,11 +47,11 @@ const GuaranteesSection = () => {
                 </span>
               </div>
               <h3 className=" text-[#121212] text-[15px] md:text-[20px] leading-[100%] font-semibold">
-                Опыт работы 17 лет
+                Мониторинг 24/7
               </h3>
               <p className="text-[#121212CC] font-normal  leading-[138%] text-[12px] md:text-[16px]">
-                Опыт - залог надёжности. Мы специализируемся на автоматизации
-                тестирования более семнадцати лет.
+                Мониторинг сервисов позволит быть уверенным в работоспособности
+                бизнеса круглые сутки.
               </p>
             </div>
             <div className="rounded-[22px] p-5 md:p-[30px] lg:p-[40px] bg-[#F1F1F1] space-y-4">
@@ -64,15 +64,15 @@ const GuaranteesSection = () => {
                   className=" w-[45px] block h-[30px] md:w-[57px] md:h-[38px] "
                 />
                 <span className="font-bold text-[#12121233] text-[14px] md:text-[16px]">
-                  01
+                  03
                 </span>
               </div>
               <h3 className=" text-[#121212] text-[15px] md:text-[20px] leading-[100%] font-semibold">
-                Опыт работы 17 лет
+                Защита данных
               </h3>
               <p className="text-[#121212CC] font-normal  leading-[138%] text-[12px] md:text-[16px]">
-                Опыт - залог надёжности. Мы специализируемся на автоматизации
-                тестирования более семнадцати лет.
+                Настраиваем резервное копирование и используем приватные сети с
+                VPN.
               </p>
             </div>
             <div className="rounded-[22px] p-5 md:p-[30px] lg:p-[40px] bg-[#F1F1F1] space-y-4">
@@ -85,15 +85,15 @@ const GuaranteesSection = () => {
                   className=" w-[45px] block h-[30px] md:w-[57px] md:h-[38px] "
                 />
                 <span className="font-bold text-[#12121233] text-[14px] md:text-[16px]">
-                  01
+                  04
                 </span>
               </div>
               <h3 className=" text-[#121212] text-[15px] md:text-[20px] leading-[100%] font-semibold">
-                Опыт работы 17 лет
+                Снижение затрат
               </h3>
               <p className="text-[#121212CC] font-normal  leading-[138%] text-[12px] md:text-[16px]">
-                Опыт - залог надёжности. Мы специализируемся на автоматизации
-                тестирования более семнадцати лет.
+                Экономия минимум 50 процентов стоимости услуг, делая выбор в
+                сторону IT-аутсорсинга.
               </p>
             </div>
           </div>
