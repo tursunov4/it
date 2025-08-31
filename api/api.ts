@@ -1,12 +1,12 @@
 import axios from "axios";
 const api = axios.create({
-  baseURL: `http://185.4.65.234/api/`,
+  baseURL: `https://uslovie-true.ru/api/`,
 });
 api.interceptors.request.use(
   (config) => {
     config.headers[
       "Authorization"
-    ] = `Token bc6040a552b68c265ae8114a08207a40f753ee6b`;
+    ] = `Token fe548b78d11c03b75a46a427dde0b49de862195e`;
     return config;
   },
   (error) => Promise.reject(error)

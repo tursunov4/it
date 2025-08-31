@@ -16,9 +16,9 @@ const manropeSans = Manrope({
 // API’dan SEO fetch qilish
 async function getSEO() {
   try {
-    const res = await fetch("http://185.4.65.234/api/seo/", {
+    const res = await fetch("https://uslovie-true.ru/api/seo/", {
       headers: {
-        Authorization: `Token bc6040a552b68c265ae8114a08207a40f753ee6b`,
+        Authorization: `Token fe548b78d11c03b75a46a427dde0b49de862195e`,
       },
       cache: "no-store", // har safar yangilanishi uchun
     });
