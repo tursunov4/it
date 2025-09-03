@@ -1,6 +1,6 @@
 "use client";
 import api from "@/api/api";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const page = () => {
   const [data, setData] = useState<{ text: string }[]>([]);
