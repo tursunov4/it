@@ -2,7 +2,7 @@
 import api from "@/api/api";
 import React, { useEffect, useState } from "react";
 
-const page = () => {
+const Page = () => {
   const [data, setData] = useState<{ text: string }[]>([]);
 
   useEffect(() => {
@@ -26,4 +26,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
