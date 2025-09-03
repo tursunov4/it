@@ -62,8 +62,29 @@ const Footer = () => {
         </div>
 
         {/* Bottom line */}
-        <div className=" px-4 mt-8 border-t border-[#FFFFFF29] pt-4  text-sm text-[#FFFFFF5C]">
-          © 2025 Все права защищены
+        <div className="px-4 mt-8 border-t border-[#FFFFFF29] pt-6 text-sm text-[#FFFFFF5C]">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            {/* Left side: Copyright */}
+            <p className="text-center md:text-left">
+              © 2025 Все права защищены
+            </p>
+
+            {/* Right side: Links */}
+            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6">
+              <Link
+                href="/terms"
+                className="hover:text-white transition-colors duration-300"
+              >
+                Условия использования
+              </Link>
+              <Link
+                href="/privacy"
+                className="hover:text-white transition-colors duration-300"
+              >
+                Пользовательское соглашение
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

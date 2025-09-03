@@ -30,7 +30,7 @@ export default function ConsultationModal() {
   const phoneRef = useMask({
     mask: "+7 (___) ___-__-__",
     replacement: { _: /\d/ },
-    showMask: true, // doim ko‘rinadigan qilib beradi
+    showMask: true,
   });
 
   const onSubmit = async (data: FormValues) => {
@@ -53,8 +53,14 @@ export default function ConsultationModal() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-      <div className="bg-white text-black rounded-2xl shadow-lg w-full max-w-lg p-6 relative">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+      onClick={closeModal} // tashqariga bosilganda yopiladi
+    >
+      <div
+        className="bg-white text-black rounded-2xl shadow-lg w-full max-w-lg p-6 relative"
+        onClick={(e) => e.stopPropagation()} // ichiga bosganda yopilmasligi uchun
+      >
         {/* Close btn */}
         <button
           onClick={closeModal}
