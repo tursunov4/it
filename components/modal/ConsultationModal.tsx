@@ -26,7 +26,7 @@ export default function ConsultationModal() {
 
   const onSubmit = async (data: FormValues) => {
     try {
-      await api.post("http://185.4.65.234/api/zayavki/create/", {
+      await api.post("/zayavki/create/", {
         name: data.name,
         email: data.email,
         phone: data.phone,
