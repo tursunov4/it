@@ -5,6 +5,7 @@ import { useModal } from "@/context/ModalContext";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
+import { useMask } from "@react-input/mask";
 
 type FormValues = {
   name: string;
@@ -22,7 +23,15 @@ export default function ConsultationModal() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    setValue,
   } = useForm<FormValues>();
+
+  // Mask hook
+  const phoneRef = useMask({
+    mask: "+7 (___) ___-__-__",
+    replacement: { _: /\d/ },
+    showMask: true, // doim ko‘rinadigan qilib beradi
+  });
 
   const onSubmit = async (data: FormValues) => {
     try {
@@ -30,10 +39,10 @@ export default function ConsultationModal() {
         name: data.name,
         email: data.email,
         phone: data.phone,
-        message: data.question, // APIga question -> message sifatida yuboriladi
+        message: data.question,
       });
 
-      reset(); // formani tozalash
+      reset();
       closeModal();
       openThankYou();
     } catch (error) {
@@ -71,9 +80,16 @@ export default function ConsultationModal() {
 
           <input
             type="tel"
-            placeholder="Номер телефона"
+            placeholder="+7 (___) ___-__-__"
             className="w-full border rounded-lg px-3 py-2"
             {...register("phone", { required: "Введите номер телефона" })}
+            ref={(e) => {
+              if (e) {
+                phoneRef.current = e;
+                register("phone").ref(e);
+              }
+            }}
+            onChange={(e) => setValue("phone", e.target.value)}
           />
           {errors.phone && (
             <p className="text-red-500 text-sm">{errors.phone.message}</p>
