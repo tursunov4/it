@@ -23,7 +23,7 @@ const ServicesItemAbout = () => {
   return (
     <section className="pt-[48px] md:pt-[64px]">
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-5 ">
+        <div className="grid items-center lg:grid-cols-2 gap-5 ">
           {/* Left Content */}
           {aboutData?.image && (
             <Image
