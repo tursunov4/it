@@ -20,7 +20,7 @@ export default function TeamCard({ member }: { member: GroupType }) {
       {/* Info */}
       <div className="p-5 md:p-[28px] text-white">
         <p className="font-semibold text-[15px] md:text-[20px]">
-          {member.name} / {member.age} года
+          {member.name} / {member.age} год
         </p>
         <p className="text-sm font-normal text-[12px] md:text-[16px] text-[#FFFFFFDB] mt-2">
           {member.position}
