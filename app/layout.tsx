@@ -41,6 +41,9 @@ export async function generateMetadata(): Promise<Metadata> {
     return {
       title: "It outsourcing",
       description: "Default description",
+      other: {
+        "yandex-verification": "51b99d074829ad3b",
+      },
     };
   }
 
@@ -53,6 +56,9 @@ export async function generateMetadata(): Promise<Metadata> {
       description: seo.page_main_description,
       siteName: "It outsourcing",
       type: "website",
+    },
+    other: {
+      "yandex-verification": "51b99d074829ad3b",
     },
   };
 }

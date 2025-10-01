@@ -58,7 +58,7 @@ const Footer = () => {
               <Link href="https://vk.com" target="_blank">
                 <Image src={"/svg/vk.svg"} alt={"vk"} width={32} height={24} />
               </Link>
-              <Link href="https://t.me" target="_blank">
+              <Link href="https://t.me/uslovie_true_support" target="_blank">
                 <Image
                   src={"/svg/tg.svg"}
                   alt={"telegram"}
