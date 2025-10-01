@@ -34,9 +34,9 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-[30px]">
             {/* Social icons */}
             <div className="flex items-center space-x-4">
-              <Link href="https://vk.com" target="_blank">
+              {/* <Link href="https://vk.com" target="_blank">
                 <Image src={"/svg/vk.svg"} alt={"vk"} width={32} height={24} />
-              </Link>
+              </Link> */}
               <Link href="https://t.me/uslovie_true_support" target="_blank">
                 <Image src={"/svg/tg.svg"} alt={"tg"} width={32} height={24} />
               </Link>
@@ -110,9 +110,9 @@ const Header = () => {
 
         {/* Socials */}
         <div className="flex space-x-4 px-6 mt-8">
-          <Link href="https://vk.com" target="_blank">
+          {/* <Link href="https://vk.com" target="_blank">
             <Image src={"/svg/vk.svg"} alt={"vk"} width={32} height={24} />
-          </Link>
+          </Link> */}
           <Link href="https://t.me/uslovie_true_support" target="_blank">
             <Image src={"/svg/tg.svg"} alt={"tg"} width={32} height={24} />
           </Link>
