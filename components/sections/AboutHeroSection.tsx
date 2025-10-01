@@ -29,7 +29,7 @@ const AboutHeroSection = () => {
     <section className="container">
       <h1 className="font-semibold text-[34px] mb-[40px]">О нас</h1>
 
-      <div className="grid lg:grid-cols-2 gap-5">
+      <div className="grid lg:grid-cols-2 items-center  gap-5">
         {/* Left Content */}
         {loading ? (
           <div className="w-full h-[300px] bg-gray-300 animate-pulse rounded-[16px]" />

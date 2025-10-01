@@ -19,7 +19,7 @@ function ServiceCardComponent({ service }: { service: ServiceType }) {
           </h3>
           <p
             dangerouslySetInnerHTML={{ __html: service.description }}
-            className="font-normal text-[12px] md:text-[16px] text-[#121212CC]"
+            className="font-normal text-[12px] md:text-[16px] text-[#121212CC] line-clamp-4"
           />
         </div>
 

@@ -22,10 +22,10 @@ const ServiceItemHeroSection = ({ data }: { data: ServiceType | null }) => {
               {data?.title} <br /> ИТ-отдел от{" "}
               {data?.price && Math.ceil(data?.price || 30000)} / мес.
             </h1>
-            <p
+            {/* <p
               dangerouslySetInnerHTML={{ __html: data?.description || "" }}
               className="font-normal text-[12px] md:text-[22px] leading-[138%] mb-4   md:mb-[40px]"
-            ></p>
+            ></p> */}
             <button
               onClick={() => openModal()}
               className="  w-full md:w-auto justify-center flex items-center cursor-pointer gap-[10px]  btn-gradient   transition-all duration-500  font-semibold text-[16px]  text-white  rounded-[14px] p-[10px]  border border-[#FFA362]"

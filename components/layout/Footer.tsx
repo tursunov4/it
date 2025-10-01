@@ -43,19 +43,28 @@ const Footer = () => {
           {/* Block 4 */}
           <div className="space-y-3 flex flex-col md:items-end md:text-end">
             <div>
-              <p className="font-semibold  text-[16px] md:text-[22px]">
-                +7 (909) 900-99-20
+              <p className="font-semibold text-[16px] md:text-[22px]">
+                <a href="tel:+74951780442" className="hover:underline">
+                  +7 (495) 178-04-42
+                </a>
               </p>
-              <p className="font-semibold  text-[16px] md:text-[22px]">
-                go@email.ru
+              <p className="font-semibold text-[16px] md:text-[22px]">
+                <a href="mailto:go@email.ru" className="hover:underline">
+                  go@email.ru
+                </a>
               </p>
             </div>
             <div className="flex space-x-4">
               <Link href="https://vk.com" target="_blank">
-                <Image src={"/svg/vk.svg"} alt={"tg"} width={32} height={24} />
+                <Image src={"/svg/vk.svg"} alt={"vk"} width={32} height={24} />
               </Link>
               <Link href="https://t.me" target="_blank">
-                <Image src={"/svg/tg.svg"} alt={"tg"} width={32} height={24} />
+                <Image
+                  src={"/svg/tg.svg"}
+                  alt={"telegram"}
+                  width={32}
+                  height={24}
+                />
               </Link>
             </div>
           </div>
