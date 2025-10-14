@@ -3,7 +3,7 @@ export interface GroupType {
   name: string;
   position: string;
   image: string;
-  age: number;
+  age: string;
   created_at: string;
 }
 
