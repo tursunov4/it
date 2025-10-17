@@ -19,10 +19,10 @@ const Footer = () => {
 
           {/* Block 2 */}
           <div className="font-semibold text-[14px] flex flex-col gap-2">
-            <Link href="/services" className="block">
+            <Link href="/service" className="block">
               Наши услуги
             </Link>
-            <Link href="/team" className="block">
+            <Link href="/our-team" className="block">
               Наша команда
             </Link>
             <Link href="/blog" className="block">
