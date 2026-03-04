@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
 
   images: {
-    domains: ["uslovie-true.ru"], // shu yerga qo‘shamiz
+    domains: ["true-team.ru"], // shu yerga qo’shamiz
   },
 };
 

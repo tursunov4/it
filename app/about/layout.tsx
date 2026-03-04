@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 // API’dan SEO fetch qilish
 async function getSEO() {
   try {
-    const res = await fetch("https://uslovie-true.ru/api/seo/", {
+    const res = await fetch("https://true-team.ru/api/seo/", {
       headers: {
-        Authorization: `Token fe548b78d11c03b75a46a427dde0b49de862195e`,
+        Authorization: `Token 60ac092b74b21bd99d7de8c3f1e06d25c7bdba80`,
       },
       cache: "no-store", // har safar yangilanishi uchun
     });
